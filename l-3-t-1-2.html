@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slideshow</title>
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f1f1f1;
+    }
+
+    .container {
+      width: 800px;
+      height: 800px;
+      border-radius: 60px;
+      overflow: hidden;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+      
+      margin: 30px;
+    }
+
+    .slideshow {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      border-radius: 60px;
+      transition: opacity 1.5s;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Automatic slideshow */
+    .fade-in-out {
+      animation: fadeEffect 12s infinite;
+    }
+
+    @keyframes fadeEffect {
+      0%, 25% {
+        opacity: 0;
+      }
+      26%, 75% {
+        opacity: 1;
+      }
+      76%, 100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="slideshow">
+      <div class="slide fade-in-out">
+        <img src="https://images.pexels.com/photos/17674177/pexels-photo-17674177/free-photo-of-city-art-building-architecture.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="https://images.pexels.com/photos/17487082/pexels-photo-17487082/free-photo-of-tenango-de-las-flores-puebla.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="https://images.pexels.com/photos/17591299/pexels-photo-17591299/free-photo-of-a-street-in-a-town.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="Slide 3">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for handling automatic slideshow
+    const slides = document.querySelectorAll('.slide');
+    let currentSlideIndex = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.opacity = i === index ? 1 : 0;
+      });
+    }
+
+    function nextSlide() {
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+      showSlide(currentSlideIndex);
+    }
+
+    setInterval(nextSlide, 4000); // Change slide every 4 seconds (adjust as per your preference)
+  </script>
+</body>
+</html>
+

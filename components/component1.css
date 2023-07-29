@@ -1,0 +1,18 @@
+.component1-container {
+  display: flex;
+  position: relative;
+}
+.component1-form {
+  width: 403px;
+  height: 68px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 60px;
+  justify-content: center;
+}
+.component1-text {
+  color: #383838;
+}

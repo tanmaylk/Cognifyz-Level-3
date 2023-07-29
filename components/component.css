@@ -1,0 +1,12 @@
+.component-container {
+  display: flex;
+  position: relative;
+}
+.component-textinput {
+  flex: 1;
+  outline: inherit;
+  font-family: Lato;
+  font-weight: 600;
+  border-width: 0px;
+  background-color: transparent;
+}
